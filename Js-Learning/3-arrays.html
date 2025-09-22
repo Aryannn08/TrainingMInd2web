@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<script>
+
+    //creating an array and usign sort and reverse in-built method
+    let arr = [6,2,9,2];
+    console.log(arr.sort());
+    console.log(arr.reverse());
+
+    //creating an array and using basic methods
+    let arr2 = [1,3,5,7,9,2,4,6,8,0];
+    arr2.push(5); //pushes 5 at last
+    console.log(arr2); //array after pushing 5 at last
+
+    console.log(arr2.pop()); //it will show the value that will be removed
+    console.log(arr2); //array after removing last element
+
+    arr2.unshift(4); //adds a value at the beginning
+    console.log(arr2);
+
+    arr2.shift(); //removes the first element
+    console.log(arr2);
+
+    //using splice and slice in the array
+    let arr3 = [1,2,3,4,5,6];
+    arr3.splice(2, 2); //this will remove 3 and 4 from the array
+    console.log(arr3); //[1,2,5,6]
+    //removing and replacing elements
+    arr3.splice(0, 2, 5, 6);
+    console.log(arr3); //[5, 6, 5, 6]
+    let abc = arr3.slice(0,2); //slice(start, end)
+    console.log(abc); //[5, 6]
+
+    //array constructor
+    let brr = new Array('Aryan',1,true); //this is an array created using array constructor
+    const emptyArray = new Array(); //this is an empty array created using array constructor
+
+    //map
+    let brr1 = [10,20,30];
+    let ansArray = brr1.map((number) => {
+        return number*number;
+    })
+    console.log(ansArray);
+
+    //filter
+    let brr2 = [2,3,4,5,6,7,8,9,10];
+
+    let evenArray = brr2.filter((number) => {
+        if(number%2 === 0){ //if writing a type then use '' i.e. if(typeof(number) === 'string') {}
+            return true;
+        }
+        else {
+            return false;
+        }
+    })
+    console.log(evenArray);
+
+    //reduce
+    let arr4 = [10,10,10,10];
+    let reduceAns = arr4.reduce((acc,curr) => {
+        console.log(`acc ${acc} || curr ${curr}`);
+        return acc+curr;
+    }, 0);
+    console.log(reduceAns);
+    console.log(arr4.indexOf(10));
+
+    //find method 
+
+    //for each
+    let arr5 = [10,20,30,40];
+    arr5.forEach((value, index) => {
+        console.log("Number:", value, "Index: ", index);
+    })
+
+    //for in loop
+    let obj = {
+        name : "Aryan",
+        age : 21,
+        city : "Kharar"
+    }
+    for(let key in obj){
+        console.log(key, " ", obj[key]);
+    }
+
+    //for of loop
+    let arr6 = [10,20,30,40,50];
+    for(let value of arr6){
+        console.log(value);
+    }
+    let fullName = "aryan";
+    for(let value of fullName){
+        console.log(value);
+    }
+
+    //arrays with function
+    let arr7 = [10,20,30,40];
+
+    function arraySum(arr7) {
+        const len = arr7.length;
+        let sum = 0;
+        for(let i=0; i<len; i++){
+            sum += arr7[i];
+        }
+        return sum;
+    }
+    let totalSum = arraySum(arr7);
+    console.log(totalSum);
+
+</script>
+</body>
+</html>

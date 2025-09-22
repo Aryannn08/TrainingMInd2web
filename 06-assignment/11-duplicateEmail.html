@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<script>
+    let arr = ["a@gmail.com", "b@gmail.com", "a@gmail.com", "c@gmail.com"];
+    let obj = {};
+    let result = [];
+    arr.forEach((ele) => {
+        if(obj[ele] === undefined){
+            obj[ele] = 1;
+        }
+        else {
+            obj[ele]++;
+        }
+    })
+    Object.keys(obj).forEach((ele) => {
+        if(obj[ele] > 1){
+            result.push(ele);
+        }
+    })
+    console.log(`The duplicates are: ${result}`);
+</script>
+</body>
+</html>

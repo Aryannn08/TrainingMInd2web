@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<label for="fibo">Enter a number:</label>
+<input type="number" id="fibo">
+<button onclick="displayFibonacci()">Calculate Fibonacci Series</button>
+<div id="result"></div>
+<script>
+    // Solution without recursion
+    // function fibonacci(fiboNumber){
+    //     const fiboN = Number(document.getElementById("fibo").value);
+    //     let result = [];
+    //     let a = 0;
+    //     let b = 1;
+    //     result.push(a);
+    //     result.push(b);
+    //     for(let i=2; i<fiboN; i++){
+    //         result[i] = result[a]+result[b];
+    //         a++;
+    //         b++;
+    //     }
+    //     console.log(result);
+    // }
+
+    //Solution with recursion
+    function fibonacci(n){
+    if(n === 0) return 0;
+    if(n === 1) return 1;
+    return fibonacci(n-1)+fibonacci(n-2);
+    }
+    function displayFibonacci(){
+        const n = Number(document.getElementById("fibo").value);
+        const result = fibonacci(n);
+        document.getElementById("result").innerHTML = result.join(", ");
+    }
+</script>
+</body>
+</html>

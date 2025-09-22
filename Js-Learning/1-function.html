@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    // normal function
+    function getMultiply(a, b) { 
+        console.log(a*b);
+    }
+    getMultiply(2, 10);
+
+    //function with return type
+    function getMultiply2(a, b) {
+        let ans = a*b;
+        return ans;
+    }
+    let ans = getMultiply2(2, 10);
+    console.log(ans);
+
+    //function stored in a variable
+    let multiply = function (a, b) {
+        return a*b;
+    }
+    let ans2 = multiply(2, 10);
+    console.log(ans2);
+
+    //arrow function
+    let sum = (a, b) => {
+        return a+b;
+    }
+    let result = sum(10, 10);
+    console.log(result);
+
+    //arrow function - without {}
+    let sum2 = (a, b) => a+b;
+    let result2 = sum(10, 10);
+    console.log(result2);
+</script>  
+</body>
+</html>

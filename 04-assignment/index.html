@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="2-jsOperators.css">
+</head>
+<body>
+<div class="columns">
+    <div class="separate-columns">
+        <div>
+        <p class="decor text-decor">Click on the button below to print even numbers from 1 to 100:</p>
+        <button onclick="displayEven()" class="btn-1">Click here</button>
+        <div id="result"></div>
+        </div>
+    </div>
+    <div class="separate-columns">
+        <p class="decor text-decor">Click on the button below to print star pattern:</p>
+        <button onclick="displayPattern()" class="btn-1">Print Pattern</button>
+        <div id="result2" class="decor"></div>
+    </div>
+    <div class="separate-columns">
+        <p class="decor text-decor">Enter marks and click on the button below to print grades:</p>
+        <div style="display: flex;">
+            <input type="text" min="0" max="100" class="decor" id="grades" style="max-width: 150px;">
+            <button onclick="displayGrades()" class="btn-1">Print Grades</button>
+        </div>
+        <div id="result3" class="decor"></div>
+    </div>
+</div>
+<script src="2-jsOperators.js"></script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+body {
+    background-color: aliceblue;
+}
+section {
+    display: flex;
+    background-color: white;
+    margin: 30px auto;
+    padding: 10px;
+    width: 600px;
+    min-height: 200px;
+    box-shadow: 4px 4px 15px rgba(0,0,0,0.3);
+}
+section div {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+button {
+    background-color: rgb(240, 121, 41);
+    color: white;
+    border: none;
+    padding: 5px;
+    border-radius: 10px;
+    width: 200px;
+}
+label {
+    font-size: 25px;
+    font-weight: bold;
+}
+input {
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #DDDD;
+    width: 400px;
+}
+.output {
+    border: 1px solid #DDDD;
+    padding: 10px;
+    width: 583px;
+    border-radius: 10px;
+}

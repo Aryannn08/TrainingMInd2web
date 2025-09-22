@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<script>
+    let arr = [10, 25, 3, 99, 56];
+    let result = arr[0];
+    let i = 1;
+    while(i<arr.length){
+        if(arr[i]>result) result = arr[i];
+        i++;
+    }
+    console.log(`The biggest number is ${result}`);
+</script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let arr = [1, [2, 3], [4, [5]]];
+        let result = [];
+
+        function arrRecur (item){
+            for(let i=0 ; i<item.length; i++){ //on chaning let i to only i, the i becomes a global variable
+                if(Array.isArray(item[i])){
+                    arrRecur(item[i]);
+                 }
+            
+            else {
+                result.push(item[i]);
+            }
+        }
+        }
+
+        arrRecur(arr);
+        console.log(result);
+    </script>
+</body>
+</html>

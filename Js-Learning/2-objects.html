@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    let employee = {
+        name: "Aryan",
+        age: 21,
+        city: "Mohali",
+        pin: 244713,
+        greet: function(){
+            console.log("Hello Welcome")
+        }
+    }
+    console.log(employee);
+    console.log(typeof(employee));
+    // employee.greet();
+    console.log(Object.keys(employee));
+    console.log(Object.values(employee));
+
+    //using reference to create a shallow copy
+    let employee2 = employee; //this will create a shallow copy which will point to the reference of previous employee
+    console.log(employee);
+    
+</script>
+</body>
+</html>

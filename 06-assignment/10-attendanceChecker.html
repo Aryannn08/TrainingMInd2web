@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<script>
+    let checkins = [
+        {name:"John",time:"09:00:00"},
+        {name:"ALice",time:"09:45:00"},
+        {name:"Bob",time:"08:55:00"}
+    ];
+    let onTime = [];
+    let lateTime = [];
+    for(let i=0; i<checkins.length; i++){
+        if(checkins[i].time <= "09:15:00"){
+            onTime.push(checkins[i].name);
+        }
+        else {
+            lateTime.push(checkins[i].name);
+        }
+    }
+    console.log(`The people on time are : ${onTime}
+    The people late are : ${lateTime}`);
+</script>
+</body>
+</html>
