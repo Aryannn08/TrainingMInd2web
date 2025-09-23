@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div>
+        Hello jee
+        <div id = "mydiv">
+            <p id="fpara" >First</p>
+            <h1>Second</h1>
+            <p>Third</p>
+        </div>
+    </div>
+    
+    <!-- <div id="fdiv">
+        <p>
+            This is my First
+            <span>
+                Text
+            </span>
+        </p>
+        <p style="display:none">This is my second para</p>
+    </div> -->
+
+
+    <!--document.getElementById, document.getElementsByClassName, documents.getElementsByTag-->
+    <!-- <p id="fpara" classs="textMatter">First Paragraph</p>
+    <p id="spara" class="textMatter">Second Paragraph</p>
+
+    <h1 id="fheading" class="textMatter">First Heading</h1> -->
+
+<script>
+//    let element = document.querySelector('#fdiv');
+//    console.log(element.textContent);
+// let fHeading = document.createElement('h1');
+// fHeading.textContent = "My name is Aryan";
+// let bodyTag = document.querySelector('body');
+// bodyTag.appendChild(fHeading);
+let parent = document.querySelector('#mydiv');
+let child = document.querySelector('#fpara');
+parent.removeChild(child);
+</script>
+</body>
+</html>

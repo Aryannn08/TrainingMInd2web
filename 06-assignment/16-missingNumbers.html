@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<script>
+    const arr=[1,2,4,7] //output should be 3,5,6
+    let min = arr[0];
+    let max = arr[arr.length-1];
+    for(let i=min ;i<max; i++){
+        if(!arr.includes(i)){
+            console.log(i);
+        }
+    }
+
+    // const arr = [1,2,4,7];
+    // console.log(
+    // Array.from({length: arr[arr.length-1] - arr[0]}, (_, i) => i + arr[0])
+    //     .filter(n => !arr.includes(n))
+    // );
+
+</script>
+</body>
+</html>

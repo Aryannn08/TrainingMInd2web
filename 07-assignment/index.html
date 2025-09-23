@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <form>
+        <h2>Form Validation</h2>
+        <fieldset class="my-fieldset">
+            <label for="username">Enter username:</label>
+            <input type="text" id="username" name="username" placeholder="username">
+            <br>
+            <br>
+            <label for="mobile">Mobile no.</label>
+            <input type="tel" id="mobile" name="mobile" placeholder="mobile no.">
+            <br>
+            <br>
+            <label for="emailid">Enter your email:</label>
+            <input type="email" id="emailid" name="email" placeholder="abc123@email.com">
+            <br>
+            <br>
+
+            <label for="gender">Select your gender:</label>
+            <select name="gender" id="gender">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+            </select>
+            <br>
+            <br>
+            <label for="about">Tell us about yourself</label>
+            <br>
+            <textarea name="textArea1" id="about" cols="30" rows="10" placeholder="About yourself"></textarea>
+            <br>
+            <br>
+            <div class="btn1">
+                <button onclick="test()">Submit</button>
+            </div>
+        </fieldset>
+    </form>
+
+    <script src="script.js"></script>
+</body>
+</html>

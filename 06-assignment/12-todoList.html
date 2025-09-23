@@ -3,12 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="12-todoList.css">
 </head>
 <body>
-    
-<script>
-    
-</script>
+<div class="container">
+    <div class="todo-app">
+        <h2>To-DO List</h2>
+        <div class="row">
+            <input type="text" id="inputTask" placeholder="Enter task:">
+            <input type="time" id="inputTime">
+            <button onclick="addTask()">Add</button>
+        </div>
+        <ul id="list-container">
+            
+        </ul>
+    </div>
+</div>
+<script src="12-todoList.js"></script>
 </body>
 </html>

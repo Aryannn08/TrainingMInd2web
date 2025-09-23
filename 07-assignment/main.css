@@ -1,0 +1,36 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+form {
+    width: 330px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 5px;
+    background: #F3F2EC;
+    margin-top: 50px;
+}
+label, input, textarea{
+    margin: 12px;
+}
+.btn1 {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+button {
+    background: #67C090;
+    border: none;
+    width: 70px;
+    height: 25px;
+    border-radius: 10px;
+    font-weight: bold;
+}
+h2 {
+    color: #9CAFAA;
+}
+body {
+    background:#DCDCDC;
+}
