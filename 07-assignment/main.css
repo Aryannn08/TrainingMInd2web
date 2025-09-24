@@ -11,8 +11,9 @@ form {
     background: #F3F2EC;
     margin-top: 20px;
 }
-label, input, textarea{
-    margin: 12px;
+label, input {
+    display: block;
+    margin: 10px;
 }
 .btn1 {
     display: flex;
@@ -33,4 +34,16 @@ h2 {
 }
 body {
     background:#DCDCDC;
+}
+.error {
+    margin-left: 10px;
+    font-size: 13px;
+    color: red;
+    margin-bottom: 10px;
+}
+.passwordStrength {
+    margin-left: 10px;
+    font-size: 13px;
+    color: green;
+    margin-bottom: 10px;
 }

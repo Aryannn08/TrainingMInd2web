@@ -27,7 +27,7 @@ function addTask() {
 }
 
 function renderTasks() {
-    listContainer.innerHTML = ''; // clear old list
+    listContainer.innerHTML = '';
     tasks.forEach(task => {
         const li = document.createElement("li");
         li.textContent = `${task.name} at ${task.time}`;
