@@ -55,6 +55,7 @@ function validateEmail(event) {
         displayError("email-error","Incorrect email format!");
         return;
     }
+    clearError("email-error");
 }
 function validatePassword(event) {
     const inputPass = document.getElementById("password");
@@ -95,16 +96,16 @@ function validatePasswordStrength(event){
     const inputPass = document.getElementById("password").value;
     const inputPass2 = document.getElementById("password2").value;
     if(inputPass === "" || inputPass2 === ""){
-        document.getElementById("password-hint").innerHTML = "";
+        document.getElementsByClassName("password-hint")[0].innerHTML = "";
     }
     else if(inputPass.length < 4 || inputPass2.length < 4){
-        document.getElementById("password-hint").innerHTML = "Weak";
+        document.getElementsByClassName("password-hint")[0].innerHTML = "Weak";
     }
-    else if(inputPass >= 4 && inputPass < 7 || inputPass2 >= 4 && inputPass < 7){
-        document.getElementById("password-hint").innerHTML = "Medium";
+    else if(inputPass.length >= 4 && inputPass.length < 7 || inputPass2.length >= 4 && inputPass.length < 7){
+        document.getElementsByClassName("password-hint")[0].innerHTML = "Medium";
     }
-    else {
-        document.getElementById("password-hint").innerHTML = "Strong";
+    else if(inputPass.length >= 7 && inputPass2.length >= 7){
+        document.getElementsByClassName("password-hint")[0].innerHTML = "Strong";
     }
 }
 
