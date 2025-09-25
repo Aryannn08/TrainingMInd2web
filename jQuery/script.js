@@ -1,0 +1,10 @@
+$(document).ready(function(){
+    $("button").click(function(){
+        $("p").toggle();
+    });
+});
+$(document).ready(function(){
+    $("button").click(function(){
+        $("#btnYash").hide();
+    })
+})

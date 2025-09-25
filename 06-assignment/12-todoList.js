@@ -28,12 +28,21 @@ function addTask() {
 
 function renderTasks() {
     listContainer.innerHTML = '';
-    tasks.forEach(task => {
+    tasks.forEach((task,index) => {
         const li = document.createElement("li");
-        li.textContent = `${task.name} at ${task.time}`;
-        listContainer.appendChild(li);
+        const taskDiv = document.createElement("div");
+        taskDiv.textContent = `${task.name} at ${task.time}`;
+        taskDiv.classList.add("taskExpand");
+        li.appendChild(taskDiv);
+
         let btn = document.createElement("button");
         btn.textContent = "Remove";
+        btn.addEventListener('click',function(){
+           li.remove();
+           tasks.splice(index, 1);
+           console.log(tasks);
+        });
         li.appendChild(btn);
+        listContainer.appendChild(li);
     });
 }

@@ -19,6 +19,7 @@ function validateName(event) {
         displayError("username-error", "Name should be at least of 5 characters!");
         return;
     }
+    clearError("username-error");
 }
 function validateMobile(event) {
     const inputMobile = document.getElementById("mobile");
@@ -32,36 +33,61 @@ function validateMobile(event) {
         displayError("mobile-error","Incorrect mobile number!");
         return;
     }
+    clearError("mobile-error");
 }
 function validateDob(event) {
-    const inputDob = document.getElementById("dob");
+    const inputDob = document.getElementById("dob").value;
+    console.log(inputDob); 
+    const dobDate = new Date(inputDob);
+
     event.preventDefault();
-    console.log(inputDob.value);
-    if(inputDob.value == ""){
+
+    const year = dobDate.getFullYear();
+    const month = dobDate.getMonth() + 1; //months are 0-indexed in JS
+    const day = dobDate.getDate();
+
+    const today = new Date();
+    const currentYear = today.getFullYear();
+    const currentMonth = today.getMonth();
+    const currentDay = today.getDate();
+
+    if(inputDob == ""){
         displayError("dob-error","Date of birth is required!");
+        return;
+    }
+
+    let age = currentYear - year;
+
+    if(currentMonth < month || (currentMonth === month && currentDay < day)){
+        age--;
+    }
+    if(age < 18){
+        displayError("dob-error","Age should be at least 18 or older!");
         return;
     }
     clearError("dob-error");
 }
 function validateEmail(event) {
     const inputEmail = document.getElementById("emailid");
+    const value = inputEmail.value.trim();
+    const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     event.preventDefault();
     console.log(inputEmail);
-    if(inputEmail.value === ""){
+    if(value === ""){
         displayError("email-error","Email is required!");
         return;
     }
-    if(!inputEmail.value.includes("@")){
-        displayError("email-error","Incorrect email format!");
+    if(!emailPattern.test(value)){
+        displayError("email-error","Invalid email format!");
         return;
     }
     clearError("email-error");
 }
 function validatePassword(event) {
     const inputPass = document.getElementById("password");
-    const hint = document.getElementById("passwordhint");
     console.log(inputPass);
     const value = inputPass.value.trim();
+    const passwordPattern = /^(?=.*[A-Za-z])(?=.*\d).{8,}$/;
     if(value === ""){
         displayError("password-error","Password is required!");
         return;
@@ -72,11 +98,12 @@ function validatePassword(event) {
     }
     if (!/\d/.test(value)) {
         displayError("password-error", "Password must contain at least one number!");
+        return;
     }
-    // if(!/[a-zA-Z]/.test(value)){
-    //     displayError("password-error", "Password must contain at least one letter!");
-    //     return;
-    // }
+    if(!/[a-zA-Z]/.test(value)){
+        displayError("password-error", "Password must contain at least one letter!");
+        return;
+    }
     clearError("password-error");
 }
 function validatePassword2(event) {
@@ -86,25 +113,31 @@ function validatePassword2(event) {
         displayError("password2-error","Password is required!");
         return;
     }
-    if(inputPass.value != inputPass2.value){
+    if(inputPass2.value != inputPass.value){
         displayError("password2-error","Password is not matching!");
         return;
     }
-
+    if(inputPass2.value === inputPass.value){
+        const errorElement = document.getElementById("password2-error");
+        errorElement.textContent = "Password matched.";
+        errorElement.style.color = "green";
+        return;
+    }
+    clearError("password2-error");
 }
 function validatePasswordStrength(event){
     const inputPass = document.getElementById("password").value;
     const inputPass2 = document.getElementById("password2").value;
-    if(inputPass === "" || inputPass2 === ""){
+    if(inputPass === ""){
         document.getElementsByClassName("password-hint")[0].innerHTML = "";
     }
-    else if(inputPass.length < 4 || inputPass2.length < 4){
+    else if(inputPass.length <= 4){
         document.getElementsByClassName("password-hint")[0].innerHTML = "Weak";
     }
-    else if(inputPass.length >= 4 && inputPass.length < 7 || inputPass2.length >= 4 && inputPass.length < 7){
+    else if(inputPass.length > 4 && inputPass.length <= 7){
         document.getElementsByClassName("password-hint")[0].innerHTML = "Medium";
     }
-    else if(inputPass.length >= 7 && inputPass2.length >= 7){
+    else if(inputPass.length === 8 || inputPass.length > 8){
         document.getElementsByClassName("password-hint")[0].innerHTML = "Strong";
     }
 }

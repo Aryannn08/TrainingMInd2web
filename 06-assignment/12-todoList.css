@@ -38,10 +38,12 @@ ul li {
     list-style: circle;
     font-size: 17px;
     padding: 12px;
-
 }
 li {
   display: flex;
-  gap: 30px;
+  gap: 40px;
   align-items: center;
+}
+.taskExpand{
+    width: 227px;
 }
