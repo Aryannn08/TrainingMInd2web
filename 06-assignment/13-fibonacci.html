@@ -31,12 +31,13 @@
     function fibonacci(n){
     if(n === 0) return 0;
     if(n === 1) return 1;
+    if(n === 2) return [0,1];
     return fibonacci(n-1)+fibonacci(n-2);
     }
     function displayFibonacci(){
         const n = Number(document.getElementById("fibo").value);
         const result = fibonacci(n);
-        document.getElementById("result").innerHTML = result.join(", ");
+        document.getElementById("result").innerHTML = result;
     }
 </script>
 </body>

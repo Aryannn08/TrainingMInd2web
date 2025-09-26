@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<script>
+    console.log(add(5)); //normal function can be called from anywhere
+    // console.log(addTWo(5)); //this will not run as this is stored inside a varibale and declared before.
+    function add(num) {
+        return num+1;
+    }
+
+    //expression variable
+    const addTwo = function(num){
+        return num+1;
+    }
+    console.log(addTwo(5)); //this will run as this is declared after.
+</script>
+</body>
+</html>

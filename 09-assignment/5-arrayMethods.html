@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<script>
+    //declaring arrays
+    const abc = [1,2,"Manpreet",{name: "abc"}];
+    console.log(abc[3]);
+    const bcd = ["mb","ap","ac"];
+    console.log(bcd);
+    const cde = new Array(1,2,3);
+    console.log(cde);
+
+    const arr1 = [1,2,3,4,5,6,7,8];
+    //push - inserts elements at last
+    arr1.push(9);
+    console.log(arr1);
+
+    //pop - removes the last element
+    arr1.pop();
+    console.log(arr1);
+
+    //unshift - adds element at first index
+    arr1.unshift(9); //the array size becomes 9
+    console.log(arr1);
+
+    //shift - removes the element at first index
+    arr1.shift(9); //the array size remains 9 , only the indexing changed
+    console.log(arr1);
+
+    //includes - checks if an element exists
+    console.log(arr1.includes(8));
+    console.log(arr1.includes(9));
+
+    //indexOf - to print the index of an element
+    console.log(arr1.indexOf(2)); //output - 1
+    console.log(arr1.indexOf(10)); //this will print -1 as the value does not exists.
+
+    //join - returns a new string by concatenating all of the elements in an array,separated by commas or a specified separator string.
+    const arr2 = ["Aryan", "Yash", "Mohit"];
+    const newArray = arr2.join();
+    console.log(newArray);
+</script>
+</body>
+</html>
