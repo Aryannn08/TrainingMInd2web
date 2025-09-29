@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function(){
+
+        //this is a click event handler
+        $("p").click(function(){
+            $(this).hide();
+        });
+
+        //this is a double click event handler
+        $("h2").dblclick(function(){
+            this.innerHTML = "Double clicked";
+        });
+
+        //this is mouse enter method
+        $(".enter").mouseenter(function(){
+            alert("Entered the area");
+        })
+
+        //this is the mouse leave method
+        $(".leave").mouseleave(function(){
+            alert("Left the area");
+        })
+
+        //this is the mouse down method
+        $(".down").mousedown(function(){
+            alert("Button is pressed");
+        })
+
+        //this is the mouse up method
+        $(".up").mouseup(function(){
+            alert("Button is released");
+        })
+
+        //this is the hover method
+        $(".hoverclass").hover(function(){
+            this.innerHTML = "The hover is working.";
+        })
+        //
+    });
+</script>
+</head>
+<body>
+    <h2>Double click here!</h2>
+    <p>Click here to hide my name.</p>
+    <p class="enter">This is the mouse enter area</p>
+    <p class="leave">This is the mouse leave area</p>
+    <p class="down">This is ths mouse down area</p>
+    <p class="up">This is the mouse up area.</p>
+    <p class="hoverclass">This is the hover area.</p>
+</body>
+</html>

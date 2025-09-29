@@ -5,22 +5,68 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="main.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function(){
+
+        $(".calc").click(function(){
+
+            let num1 = parseFloat($("#input1").val());
+            let operation = $("#operation").val();
+            let num2 = parseFloat($("#input2").val());
+
+            let result;
+
+            switch(operation) {
+                
+                case '+':
+                    result = num1 + num2;
+                    break;
+
+                case '-':
+                    result = num1 - num2;
+                    break;
+
+                case '/':
+                    result = num1/num2;
+                    break;
+
+                case '*':
+                    result = num1*num2;
+                    break;
+                default:
+                    result = "Please select a valid operator.";
+            }
+
+            $(".result").html("Output: " + result);
+
+            $("#input1").val("");
+            $("#input2").val("");
+            $("#operation").val("");
+
+        });
+
+    });
+</script>
 </head>
 <body>
     <div class="container">
         <div class = "heading">
-            <h3>Calculator</h3>
+            <h3>Calculator using jQuery</h3>
         </div>
         <div class="action">
-            <input type="number" placeholder="Enter a number:">
-            <input type="number" placeholder="Enter a number:">
-            <select>
-                <option>--Operation--</option>
-                <option>Addition</option>
-                <option>Subtraction</option>
-                <option>Division</option>
-                <option>Multiplication</option>
+            <input type="number" id="input1" placeholder="Enter a number:">
+            <select id="operation">
+                <option value="">--Operation--</option>
+                <option value="+">+</option>
+                <option value="-">-</option>
+                <option value="/">/</option>
+                <option value="*">*</option>
             </select>
+            <input type="number" id="input2" placeholder="Enter a number:">
+        </div>
+        <div class="calculate">
+            <button class="calc">Calculate</button>
         </div>
         <div class="result">
 
