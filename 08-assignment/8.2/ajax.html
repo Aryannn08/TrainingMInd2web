@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $("#load").click(function(){
+            $("#result").load("data.txt");
+        });
+        $("#reset").click(function(){
+            $("#result").empty();
+        });
+    });
+</script>
+<style>
+    *{
+        margin: 0px;
+        padding: 0px;
+        box-sizing: border-box;
+    }
+    body {
+        background-color: #F7A5A5;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+    .container {
+        width: 500px;
+        height: 400px;
+        background-color: #FFF2EF;
+        overflow: auto;
+        position: relative;
+    }
+    h2 {
+        text-align: center;
+    }
+    #abc {
+        display: flex;
+        justify-content: center;
+        padding: 10px;
+    }
+    #reset {
+        position: absolute;
+        top: 90%;
+        left: 50%;
+        transform: translateX(-50%);
+        height: 25px;
+        width: 60px;
+        border-radius: 10px;
+        border: none;
+        color: white;
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: green;
+    }
+    #load {
+        padding: 5px;
+        border-radius: 5px;
+    }
+    #result {
+        padding: 15px;
+        font-family: Helvetica;
+    }
+</style>
+</head>
+<body>
+   <div class="container">
+     <h2>AJAX content loading....</h2>
+    <div id="abc">
+        <button id="load">Get external content</button>
+    </div>
+    <div id="result">
+
+    </div>
+    <div>
+        <button id="reset">Reset</button>
+    </div>
+   </div>
+</body>
+</html>

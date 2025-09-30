@@ -18,5 +18,19 @@ print_r($y);
 
 //string concatenation
 $c = $x . " " . $b; // "$x $y" will work same
-echo $c;
+echo $c."\n";
+
+//slicing strings
+echo substr($x, 6, 5)."\n"; // output - World 
+//slice till end
+echo substr($x, 6)."\n"; //output - World
+//slice from the end
+echo substr($x, -5, 3)."\n";
+//negative slicing
+$d = "Hi, how are you?";
+echo substr($d, 5, -3)."\n";
+
+//escape character - \",\',\n,\$ to insert illegal values in string
+$e = "We are the \"Vikings\" from north";
+echo $e."\n";
 ?>
