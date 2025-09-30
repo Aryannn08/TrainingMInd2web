@@ -22,18 +22,20 @@
         box-sizing: border-box;
     }
     body {
-        background-color: #F7A5A5;
+        background-color: #E6CFA9;
         display: flex;
         justify-content: center;
         align-items: center;
         height: 100vh;
     }
     .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
         width: 500px;
         height: 400px;
-        background-color: #FFF2EF;
+        background-color: #F3F2EC;
         overflow: auto;
-        position: relative;
     }
     h2 {
         text-align: center;
@@ -44,17 +46,13 @@
         padding: 10px;
     }
     #reset {
-        position: absolute;
-        top: 90%;
-        left: 50%;
-        transform: translateX(-50%);
         height: 25px;
         width: 60px;
         border-radius: 10px;
         border: none;
         color: white;
         font-family: Arial, Helvetica, sans-serif;
-        background-color: green;
+        background-color: #C1856D;
     }
     #load {
         padding: 5px;
@@ -62,20 +60,27 @@
     }
     #result {
         padding: 15px;
-        font-family: Helvetica;
+    }
+    .resetBtn {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 10px;
     }
 </style>
 </head>
 <body>
    <div class="container">
-     <h2>AJAX content loading....</h2>
-    <div id="abc">
-        <button id="load">Get external content</button>
-    </div>
-    <div id="result">
-
-    </div>
     <div>
+        <h2>AJAX content loading....</h2>
+        <div id="abc">
+            <button id="load">Get external content</button>
+        </div>
+        <div id="result">
+
+        
+        </div>
+    </div>
+    <div class="resetBtn">
         <button id="reset">Reset</button>
     </div>
    </div>

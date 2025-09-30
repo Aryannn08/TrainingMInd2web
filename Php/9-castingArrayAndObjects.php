@@ -7,4 +7,6 @@ $e = true;
 
 $a = (array) $a; //converted 5 into an array
 print_r($a); 
+
+
 ?>
