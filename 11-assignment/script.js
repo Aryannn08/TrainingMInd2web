@@ -1,147 +1,155 @@
-function validateForm(event){
-    validateName(event);
-    validateMobile(event);
-    validateDob(event);
-    validateEmail(event);
-    validatePassword(event);
-    validatePassword2(event);
-    validatePasswordStrength(event);
-}
-function validateName(event) {
+// Main click event
+document.getElementById("test").addEventListener("click", function () {
+    clearAllErrors(); // optional: clear previous errors
+
+    const okName = validateName();
+    const okMobile = validateMobile();
+    const okDob = validateDob();
+    const okEmail = validateEmail();
+    const okPassword = validatePassword();
+    const okPassword2 = validatePassword2();
+    validatePasswordStrength(); // just visual hint
+
+    if (okName && okMobile && okDob && okEmail && okPassword && okPassword2) {
+        document.getElementById("userForm").submit(); // submit form to PHP
+    }
+});
+
+// Validation functions
+function validateName() {
     const inputUsername = document.getElementById("username");
-    event.preventDefault();
-    console.log(inputUsername.value);
     if(inputUsername.value.trim() === ""){
         displayError("username-error","Name is required!");
-        return;
+        return false;
     }
     if(inputUsername.value.trim().length < 5){
-        displayError("username-error", "Name should be at least of 5 characters!");
-        return;
+        displayError("username-error", "Name should be at least 5 characters!");
+        return false;
     }
     clearError("username-error");
+    return true;
 }
-function validateMobile(event) {
+
+function validateMobile() {
     const inputMobile = document.getElementById("mobile");
-    event.preventDefault();
-    console.log(inputMobile.value);
     if(inputMobile.value === ""){
         displayError("mobile-error","Mobile number is required!");
-        return;
+        return false;
     }
     if(inputMobile.value.length !== 10){
         displayError("mobile-error","Incorrect mobile number!");
-        return;
+        return false;
     }
     clearError("mobile-error");
+    return true;
 }
-function validateDob(event) {
+
+function validateDob() {
     const inputDob = document.getElementById("dob").value;
-    console.log(inputDob); 
     const dobDate = new Date(inputDob);
-
-    event.preventDefault();
-
-    const year = dobDate.getFullYear();
-    const month = dobDate.getMonth() + 1; //months are 0-indexed in JS
-    const day = dobDate.getDate();
-
-    const today = new Date();
-    const currentYear = today.getFullYear();
-    const currentMonth = today.getMonth();
-    const currentDay = today.getDate();
 
     if(inputDob == ""){
         displayError("dob-error","Date of birth is required!");
-        return;
+        return false;
     }
 
-    let age = currentYear - year;
-
-    if(currentMonth < month || (currentMonth === month && currentDay < day)){
+    const today = new Date();
+    let age = today.getFullYear() - dobDate.getFullYear();
+    const m = today.getMonth() - dobDate.getMonth();
+    if (m < 0 || (m === 0 && today.getDate() < dobDate.getDate())) {
         age--;
     }
+
     if(age < 18){
         displayError("dob-error","Age should be at least 18 or older!");
-        return;
+        return false;
     }
+
     clearError("dob-error");
+    return true;
 }
-function validateEmail(event) {
+
+function validateEmail() {
     const inputEmail = document.getElementById("emailid");
     const value = inputEmail.value.trim();
     const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    event.preventDefault();
-    console.log(inputEmail);
+
     if(value === ""){
         displayError("email-error","Email is required!");
-        return;
+        return false;
     }
     if(!emailPattern.test(value)){
         displayError("email-error","Invalid email format!");
-        return;
+        return false;
     }
+
     clearError("email-error");
+    return true;
 }
-function validatePassword(event) {
+
+function validatePassword() {
     const inputPass = document.getElementById("password");
-    console.log(inputPass);
     const value = inputPass.value.trim();
-    const passwordPattern = /^(?=.*[A-Za-z])(?=.*\d).{8,}$/;
+
     if(value === ""){
         displayError("password-error","Password is required!");
-        return;
+        return false;
     }
     if(value.length < 8){
         displayError("password-error","Password should be at least 8 characters!");
-        return;
+        return false;
     }
     if (!/\d/.test(value)) {
         displayError("password-error", "Password must contain at least one number!");
-        return;
+        return false;
     }
     if(!/[a-zA-Z]/.test(value)){
         displayError("password-error", "Password must contain at least one letter!");
-        return;
+        return false;
     }
+
     clearError("password-error");
+    return true;
 }
-function validatePassword2(event) {
+
+function validatePassword2() {
     const inputPass = document.getElementById("password");
     const inputPass2 = document.getElementById("password2");
+
     if(inputPass2.value === ""){
         displayError("password2-error","Password is required!");
-        return;
+        return false;
     }
     if(inputPass2.value != inputPass.value){
         displayError("password2-error","Password is not matching!");
-        return;
+        return false;
     }
-    if(inputPass2.value === inputPass.value){
-        const errorElement = document.getElementById("password2-error");
-        errorElement.textContent = "Password matched.";
-        errorElement.style.color = "green";
-        return;
-    }
-    clearError("password2-error");
+
+    const errorElement = document.getElementById("password2-error");
+    errorElement.textContent = "Password matched.";
+    errorElement.style.color = "green";
+    return true;
 }
-function validatePasswordStrength(event){
+
+function validatePasswordStrength() {
     const inputPass = document.getElementById("password").value;
-    const inputPass2 = document.getElementById("password2").value;
+    const hint = document.getElementsByClassName("password-hint")[0];
+
     if(inputPass === ""){
-        document.getElementsByClassName("password-hint")[0].innerHTML = "";
+        hint.innerHTML = "";
     }
     else if(inputPass.length <= 4){
-        document.getElementsByClassName("password-hint")[0].innerHTML = "Weak";
+        hint.innerHTML = "Weak";
     }
-    else if(inputPass.length > 4 && inputPass.length <= 7){
-        document.getElementsByClassName("password-hint")[0].innerHTML = "Medium";
+    else if(inputPass.length <= 7){
+        hint.innerHTML = "Medium";
     }
-    else if(inputPass.length === 8 || inputPass.length > 8){
-        document.getElementsByClassName("password-hint")[0].innerHTML = "Strong";
+    else {
+        hint.innerHTML = "Strong";
     }
 }
 
+// Helper functions
 function displayError(id, text) {
     document.getElementById(id).innerHTML = text;
 }
@@ -149,4 +157,10 @@ function displayError(id, text) {
 function clearError(id){
     document.getElementById(id).innerHTML = "";
 }
-document.getElementById("test").addEventListener("click", validateForm);
+
+function clearAllErrors(){
+    const errors = document.getElementsByClassName("error");
+    for(let i=0; i<errors.length; i++){
+        errors[i].innerHTML = "";
+    }
+}

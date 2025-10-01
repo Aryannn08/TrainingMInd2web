@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="main.css">
 </head>
 <body>
-    <form>
+    <form id="userForm" action="process.php" method="post" novalidate>
         <h2>Form Validation</h2>
         <fieldset class="my-fieldset">
             <div>
@@ -56,7 +56,7 @@
                 <div class="error" id="password2-error"></div>
             </div>
             <div class="btn1">
-                <button id="test">Submit</button>
+                <button type="button" id="test">Submit</button>
             </div>
         </fieldset>
     </form>
