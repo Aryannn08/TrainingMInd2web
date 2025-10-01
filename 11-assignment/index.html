@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <form>
+        <h2>Form Validation</h2>
+        <fieldset class="my-fieldset">
+            <div>
+                <div>
+                    <label for="username">Enter username:</label>
+                    <input type="text" id="username" name="username" placeholder="enter username" required>
+                </div>
+                <div class="error" id="username-error"></div>
+            </div>
+            <div>
+                <div>
+                    <label for="mobile">Mobile number:</label>
+                    <input type="tel" id="mobile" name="mobile" placeholder="mobile no." required>
+                </div>
+                <div class="error" id="mobile-error"></div>
+            </div>
+            <div>
+                <div>
+                    <label for="dob">Date of birth:</label>
+                    <input type="date" id="dob" name="dob" required>
+                </div>
+                <div class="error" id="dob-error"></div>
+            </div>
+            <div>
+                <div>
+                    <label for="emailid">Enter your email:</label>
+                    <input type="email" id="emailid" name="email" placeholder="abc123@email.com" required>
+                </div>
+                <div class="error" id="email-error"></div>
+            </div>
+            <div>
+                <div>
+                    <label for="password">Enter password:</label>
+                    <input type="text" id="password" name="password" placeholder="enter password" required>
+                </div>
+                <div>
+                    <p class="passwordStrength password-hint"></p>
+                </div>
+                <div class="error" id="password-error"></div>
+            </div>
+            <div>
+                <div>
+                    <label for="password2">Enter password again:</label>
+                    <input type="text" id="password2" name="password2" placeholder="enter password again" required>
+                </div>
+                <div class="error" id="password2-error"></div>
+            </div>
+            <div class="btn1">
+                <button id="test">Submit</button>
+            </div>
+        </fieldset>
+    </form>
+
+    <script src="script.js"></script>
+</body>
+</html>
